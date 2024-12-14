@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Tipo">
+        <menu>
+            <item
+                android:id="@+id/item_domesticos"
+                android:title="Domésticos" />
+            <item
+                android:id="@+id/item_salvajes"
+                android:title="Salvajes" />
+            <item
+                android:id="@+id/item_aves"
+                android:title="Aves" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/item_salir"
+        android:title="Salir" />
+</menu>
