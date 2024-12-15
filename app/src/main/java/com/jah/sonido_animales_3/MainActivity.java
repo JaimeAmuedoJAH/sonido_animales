@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -37,6 +38,19 @@ public class MainActivity extends AppCompatActivity {
         img4.setOnClickListener(view -> reproducirSonido(arrSonidos[3]));
         img5.setOnClickListener(view -> reproducirSonido(arrSonidos[4]));
         img6.setOnClickListener(view -> reproducirSonido(arrSonidos[5]));
+        if(savedInstanceState != null){
+            mediaPlayer.seekTo(savedInstanceState.getInt("posicion"));
+            Log.i("posicion", mediaPlayer.getCurrentPosition() + "");
+            mediaPlayer.start();
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mediaPlayer.pause();
+        outState.putInt("posicion", mediaPlayer.getCurrentPosition());
+        Log.i("posicion", mediaPlayer.getCurrentPosition() + "");
     }
 
     private void reproducirSonido(int sonido) {
